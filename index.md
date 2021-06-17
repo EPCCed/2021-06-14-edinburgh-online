@@ -9,14 +9,14 @@ country: "gb"      # lowercase two-letter ISO country code such as "fr" (see htt
 language: "en"     # lowercase two-letter ISO language code such as "fr" (see https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for the
 latitude: "45"        # decimal latitude of workshop venue (use https://www.latlong.net/)
 longitude: "-1"       # decimal longitude of the workshop venue (use https://www.latlong.net)
-humandate: "Jun 15-17, 2021"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
+humandate: "Jun 14-17, 2021"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
 humantime: "09:30 - 13:00"    # human-readable times for the workshop (e.g., "9:00 am - 4:30 pm")
 startdate: 2021-06-14      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
 enddate: 2021-06-17        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
 instructor: ["Juan Herrera"] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
-helper: ["TBD"]     # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
+helper: ["Julien Sindt", "Kevin Stratford"]     # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
 email: ["support@archer2.ac.uk"]    # boxed, comma-separated list of contact email addresses for the host, lead instructor, or whoever else is handling questions, like ["marlyn.wescoff@example.org", "fran.bilas@example.org", "ruth.lichterman@example.org"]
-collaborative_notes:  # optional: URL for the workshop collaborative notes, e.g. an Etherpad or Google Docs document (e.g., https://pad.carpentries.org/2015-01-01-euphoria)
+collaborative_notes: https://pad.archer2.ac.uk/p/210614-data-carpentry # optional: URL for the workshop collaborative notes, e.g. an Etherpad or Google Docs document (e.g., https://pad.carpentries.org/2015-01-01-euphoria)
 eventbrite:           # optional: alphanumeric key for Eventbrite registration, e.g., "1234567890AB" (if Eventbrite is being used)
 ---
 
@@ -75,10 +75,12 @@ displayed if the 'eventbrite' field in the header is not set.
 </iframe>
 {% endif %}
 
+{% comment %}
 <h2>Registration</h2>
 <p>Please use the <a href="https://www.archer2.ac.uk/training/register/?course=210614-data-carpentry">ARCHER2 course registration form</a> to sign up for the workshop.</p>
 
 <hr/>
+{% endcomment %}
 
 <h2 id="general">General Information</h2>
 
@@ -308,23 +310,11 @@ We will use this <a href="{{ page.collaborative_notes }}">collaborative document
 SURVEYS - DO NOT EDIT SURVEY LINKS
 {% endcomment %}
 <h2 id="surveys">Surveys</h2>
-<p>Please be sure to complete these surveys before and after the workshop.</p>
-{% if site.carpentry == "pilot" %}
-<p><a href="{{ site.pilot_pre_survey }}">Pre-workshop Survey</a></p>
-<p><a href="{{ site.pilot_post_survey }}">Post-workshop Survey</a></p>
-{% elsif site.pilot_pre_survey or site.pilot_post_survey %}
-<div class="alert alert-danger">
-WARNING: you have defined custom pre- and/or post-survey links for
-a workshop not configured as a lesson pilot
-(the value of `site` is not set to `pilot` in `_config.yml`).
-Please comment out the `pilot_pre_survey` and `pilot_post_survey` fields
-in `_config.yml` or, if this workshop is a lesson pilot,
-change the value of `carpentry` to `pilot`.
-</div>
-{% else %}
+<p>Please be sure to complete these surveys <strong>before</strong> the workshop:</p>
 <p><a href="{{ site.pre_survey }}{{ site.github.project_title }}">Pre-workshop Survey</a></p>
+<p>Please be sure to complete these surveys <strong>after</strong> the workshop:</p>
+<p><a href="https://www.archer2.ac.uk/training/feedback/?course=210614-data-carpentry">ARCHER2 course feedback</a></p>
 <p><a href="{{ site.post_survey }}{{ site.github.project_title }}">Post-workshop Survey</a></p>
-{% endif %}
 
 <hr/>
 
